@@ -1,5 +1,6 @@
 package ie.atu;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,8 +33,8 @@ public class CalcTest {
     }
     @Test
     public void testSub_Fail(){
-        Exception ex= assertThrows(ArithmeticException.class, ()->calc.sub(Integer.MAX_VALUE, 1));
-        assertEquals("Number cannot be greater than or equal to Integer.MAX_VALUE", ex.getMessage());
+        Exception ex= assertThrows(ArithmeticException.class, ()->calc.sub(Integer.MIN_VALUE, -1));
+        assertEquals("Number cannot be less than or equal to Integer.MIN_VALUE", ex.getMessage());
 
     }
     @Test
@@ -43,18 +44,23 @@ public class CalcTest {
     @Test
     public void testMultiply_Fail(){
 
-        Exception ex= assertThrows(ArithmeticException.class, ()->calc.mul(Integer.MAX_VALUE, 1));
-        assertEquals("Number cannot be greater than or equal to Integer.MAX_VALUE", ex.getMessage());
+        Exception ex= assertThrows(ArithmeticException.class, ()->calc.mul((Integer.MAX_VALUE)/2, 3));
+        assertEquals("Values too large for multiplication", ex.getMessage());
     }
     @Test
     public void testDivide_Success(){
         assertEquals(2, calc.div(10,5));
     }
     @Test
-    public void testDivide_Fail(){
+    public void testDivide_FailZero(){
     Exception ex= assertThrows(ArithmeticException.class, ()->calc.div(0, 0));
     assertEquals("Cannot perform operation with '0'", ex.getMessage());
 
+    }
+    @Test
+    public void testDivide_Fail(){
+    Exception ex= assertThrows(ArithmeticException.class, ()->calc.div(Integer.MAX_VALUE, 0));
+    Assertions.assertEquals("Number cannot be greater than or equal to Integer.MAX_VALUE", ex.getMessage());
     }
 
 }
