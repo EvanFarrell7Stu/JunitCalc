@@ -15,11 +15,12 @@ public class Calculator {
         int result=FirstNum-SecondNum;
         return result;
     }
-    public long mul(long FirstNum, long SecondNum){
-        if(FirstNum*SecondNum>=Integer.MAX_VALUE ){
+    public long mul(int FirstNum, int SecondNum){
+        long result= (long)FirstNum * SecondNum;
+        if(result>=Integer.MAX_VALUE ){
             throw new ArithmeticException("Values too large for multiplication");
         }
-        int result= Math.toIntExact((int) FirstNum * SecondNum);
+
         return result;
     }
     public float div(int FirstNum, int SecondNum){
