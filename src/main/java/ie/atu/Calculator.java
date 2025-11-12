@@ -27,7 +27,7 @@ public class Calculator {
         if(FirstNum>=Integer.MAX_VALUE|| SecondNum>=Integer.MAX_VALUE){
             throw new ArithmeticException("Number cannot be greater than or equal to Integer.MAX_VALUE");
         }
-        if(FirstNum==0 || SecondNum==0){
+        if(SecondNum==0){
             throw new ArithmeticException("Cannot perform operation with '0'");
 
         }
