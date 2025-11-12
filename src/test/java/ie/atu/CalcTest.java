@@ -22,6 +22,30 @@ public class CalcTest {
     public void testAdd_Fail(){
 
     Exception ex= assertThrows(ArithmeticException.class, ()->calc.add(Integer.MAX_VALUE, 1));
-            assertEquals("Number too large", ex.getMessage());
+            assertEquals("Number cannot be greater than or equal to Integer.MAX_VALUE", ex.getMessage());
     }
+
+    @Test
+    public void testSub_Success(){
+        assertEquals(1, calc.sub(5,4));
+
+    }
+    @Test
+    public void testSub_Fail(){
+
+
+    }
+    @Test
+    public void testMultiply_Success(){
+        assertEquals(200, calc.mul(10,20));
+    }
+    @Test
+    public void testMultiply_Fail(){}
+    @Test
+    public void testDivide_Success(){
+        assertEquals(2, calc.div(10,5));
+    }
+    @Test
+    public void testDivide_Fail(){}
+
 }
