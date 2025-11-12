@@ -25,6 +25,7 @@ public class Calculator {
     public float div(int FirstNum, int SecondNum){
         if(FirstNum==0 || SecondNum==0){
             throw new ArithmeticException("Cannot perform operation with '0'");
+
         }
         float result=FirstNum/SecondNum;
         return result;

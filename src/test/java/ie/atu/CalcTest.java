@@ -54,6 +54,7 @@ public class CalcTest {
     public void testDivide_Fail(){
     Exception ex= assertThrows(ArithmeticException.class, ()->calc.div(0, 0));
     assertEquals("Cannot perform operation with '0'", ex.getMessage());
+
     }
 
 }
